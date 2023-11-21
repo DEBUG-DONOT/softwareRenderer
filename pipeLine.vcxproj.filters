@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pipeLine.cpp">
+    <ClCompile Include="src\pipeLine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
