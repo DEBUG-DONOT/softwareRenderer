@@ -7,20 +7,20 @@
 class Triangle
 {
 public:
-	Triangle(TGAImage& t) :image(t) {}
+	//Triangle(TGAImage& t) :image(t) {}
 	/*@parm a,b,c 三个屏幕空间的坐标，因为从模型到屏幕空间这一块应该交给别的函数来处理
 	* 这个函数单纯的只是执行从屏幕空间的三角形画出三角形这一步
 	*/
-	//Triangle(Eigen::Vector2f a, Eigen::Vector2f b, Eigen::Vector2f c,TGAImage& image);
-	//void Draw(const TGAColor& color);
-	void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
+	Triangle(Eigen::Vector2f a, Eigen::Vector2f b, Eigen::Vector2f c,TGAImage& image);
+	void Draw(const TGAColor& color);
 private:
-	//bool inside(const Eigen::Vector2f& p);
+	bool inside(const Eigen::Vector2f& p);
+	void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
 
 	TGAImage& image;
-	//const Eigen::Vector2f& ma;
-	//const Eigen::Vector2f& mb;
-	//const Eigen::Vector2f& mc;
+	const Eigen::Vector2f& ma;
+	const Eigen::Vector2f& mb;
+	const Eigen::Vector2f& mc;
 };
 
 

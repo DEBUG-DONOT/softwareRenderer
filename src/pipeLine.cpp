@@ -11,7 +11,8 @@ int main()
     const int width = 1024;
     TGAImage image(width, height, TGAImage::RGB);
     auto m = new Model("src/OBJ/african_head.obj");
-   
+    Triangle t(Eigen::Vector2f(100, 20), Eigen::Vector2f(680, 680), Eigen::Vector2f(300, 369), image);
+    t.Draw(red);
     image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
     image.write_tga_file("output.tga");
     return 0;
