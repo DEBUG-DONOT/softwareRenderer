@@ -1,6 +1,7 @@
 ﻿#include"triangle.h"
 #include"model.h"
 #include<iostream>
+#include<memory>
 //#include <iostream>
 //#include <filesystem>
 const TGAColor white = TGAColor(255, 255, 255, 255);
@@ -11,8 +12,19 @@ int main()
     const int width = 1024;
     TGAImage image(width, height, TGAImage::RGB);
     auto m = new Model("src/OBJ/african_head.obj");
-    Triangle t(Eigen::Vector2f(100, 20), Eigen::Vector2f(680, 680), Eigen::Vector2f(300, 369), image);
-    t.Draw(red);
+    //Triangle t(Eigen::Vector2f(100, 20), Eigen::Vector2f(680, 680), Eigen::Vector2f(6, 369), image);
+    //t.Draw(red);
+    bool decide = false;
+    for (int i = 0; i < m->nfaces(); i++)
+    {
+        auto currFace = m->face(i);
+        Eigen::Vector2f v1((m->vert(currFace[0]).x()+1)*width/2, (m->vert(currFace[0]).y()+1)*height/2);
+        Eigen::Vector2f v2((m->vert(currFace[1]).x()+1)*width/2, (m->vert(currFace[1]).y()+1)*height/2);
+        Eigen::Vector2f v3((m->vert(currFace[2]).x()+1)*width/2, (m->vert(currFace[2]).y()+1)*height/2);
+        Triangle t(v1, v2, v3, image);
+        if (decide) { t.Draw(red); decide = false; }
+        else { t.Draw(white); decide = true; }
+    }
     image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
     image.write_tga_file("output.tga");
     return 0;

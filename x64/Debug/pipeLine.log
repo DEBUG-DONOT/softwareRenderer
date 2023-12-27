@@ -1,25 +1,5 @@
-﻿  triangle.cpp
+﻿  pipeLine.cpp
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(31,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(32,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(33,15): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(34,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
   pipeLine.vcxproj -> E:\ComputerGraphics\pipeLine\x64\Debug\pipeLine.exe
