@@ -17,7 +17,7 @@ bool Triangle::inside(const Eigen::Vector2f& p)
 	auto r1 = crossDot(p - ma, mb - ma);
 	auto r2 = crossDot(p - mb, mc - mb);
 	auto r3 = crossDot(p - mc, ma - mc);
-	if (r1 > 0 && r2 > 0 && r3 > 0 || r1 < 0 && r2 < 0 && r3 < 0)return true;
+	if (r1 >= 0 && r2 >= 0 && r3 >= 0 || r1 <= 0 && r2 <= 0 && r3 <= 0)return true;
 	return false;
 }
 
