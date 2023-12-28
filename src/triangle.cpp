@@ -5,8 +5,8 @@ float crossDot(const Eigen::Vector2f& a, const Eigen::Vector2f& b)
 	return a.x() * b.y() - a.y() * b.x();
 }
 
-Triangle::Triangle(Eigen::Vector2f a, Eigen::Vector2f b, Eigen::Vector2f c, TGAImage& image,ZBuffer& zBuffer)
-	:ma(a),mb(b),mc(c),image(image),zBuffer(zBuffer)
+Triangle::Triangle(const std::vector<Eigen::Vector2f>& screenCoord, TGAImage& image,ZBuffer& zBuffer)
+	:ma(screenCoord[0]), mb(screenCoord[1]), mc(screenCoord[2]), image(image), zBuffer(zBuffer)
 {
 }
 

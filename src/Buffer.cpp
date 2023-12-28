@@ -38,3 +38,4 @@ bool ZBuffer::Set(int x, int y, float z)
 	}
 	return false;
 }
+
