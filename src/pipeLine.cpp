@@ -10,6 +10,7 @@ int main()
     TGAImage image(width, height, TGAImage::RGB);
     ZBuffer zBuffer(width, height);
     auto m = new Model("src/OBJ/african_head.obj");
+    auto texture = new Texture("src/OBJ/african_diffuse.tga");
     Light mLight(Eigen::Vector3f(0, 0, 0), Eigen::Vector3f(0, 0, -1));
     std::vector<Eigen::Vector3f> wordCoord(3);
     for (int i = 0; i < m->nfaces(); i++)

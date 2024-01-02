@@ -1,5 +1,5 @@
 #pragma once
-
+#include"tgaimage.h"
 class ZBuffer
 {
 public:
@@ -17,5 +17,9 @@ private:
 
 class Texture
 {
-
+public:
+	Texture(const char* filename);
+	TGAColor Get(int x, int y) const;
+private:
+	TGAImage tex;
 };

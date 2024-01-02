@@ -10,6 +10,7 @@ class Triangle
 public:	
 	Triangle(const std::vector<Eigen::Vector3f>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3f>& wordCoord);
 	void Draw(const TGAColor& color);
+	void Draw(const Texture* tex);
 private:
 	bool inside(const Eigen::Vector3f& p);
 	//void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);

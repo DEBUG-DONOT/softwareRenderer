@@ -39,3 +39,13 @@ bool ZBuffer::Set(int x, int y, float z)
 	return false;
 }
 
+Texture::Texture(const char* filename)
+{
+	//可以做一个mipmap
+	tex.read_tga_file(filename);
+}
+
+TGAColor Texture::Get(int x, int y) const
+{
+	return TGAColor();
+}
