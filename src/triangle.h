@@ -7,22 +7,20 @@
 */
 class Triangle
 {
-public:
-	//Triangle(TGAImage& t) :image(t) {}
-	/*@parm a,b,c 三个屏幕空间的坐标，因为从模型到屏幕空间这一块应该交给别的函数来处理
-	* 这个函数单纯的只是执行从屏幕空间的三角形画出三角形这一步
-	*/
-	Triangle(const std::vector<Eigen::Vector2f>& screenCoord,TGAImage& image,ZBuffer& zbuffer);
+public:	
+	Triangle(const std::vector<Eigen::Vector3f>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3f>& wordCoord);
 	void Draw(const TGAColor& color);
 private:
-	bool inside(const Eigen::Vector2f& p);
-	void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
-
+	bool inside(const Eigen::Vector3f& p);
+	//void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
+	std::vector<float> calBarycentricCoord(const Eigen::Vector3f& curr);
 	TGAImage& image;
 	ZBuffer& zBuffer;
-	const Eigen::Vector2f ma;
-	const Eigen::Vector2f mb;
-	const Eigen::Vector2f mc;
-};
+	const Eigen::Vector3f& ma;
+	const Eigen::Vector3f& mb;
+	const Eigen::Vector3f& mc;
+	const std::vector<Eigen::Vector3f>& screenCoord;
+	const std::vector<Eigen::Vector3f>& wordCoord;
+};						 
 
 

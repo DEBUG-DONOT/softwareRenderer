@@ -14,3 +14,8 @@ private:
 	int width=0, height=0;
 	float* data=nullptr;
 };
+
+class Texture
+{
+
+};

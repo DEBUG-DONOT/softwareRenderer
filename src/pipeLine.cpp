@@ -19,14 +19,12 @@ int main()
         {
             wordCoord[j] = m->vert(currFace[j]);
         }
-
-
         VertexShader v(wordCoord, zBuffer);
         v.CalScreenCoord();
 
         auto n = (wordCoord[2] - wordCoord[0]).cross((wordCoord[1] - wordCoord[0])).normalized();
         auto intensity = n.dot(mLight.GetDir());
-        Triangle t(v.GetScreenCoord(), image, zBuffer);
+        Triangle t(v.GetScreenCoord(), image, zBuffer,wordCoord);
         if (intensity > 0)t.Draw(TGAColor(255 * intensity, 255 * intensity, 255 * intensity, 255));
         //if (intensity > 0) t.Draw(red);
     }

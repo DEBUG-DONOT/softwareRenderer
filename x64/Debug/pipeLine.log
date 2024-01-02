@@ -2,36 +2,42 @@
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(30,81): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
-E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(30,64): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
-E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(30,47): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(28,81): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(28,64): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\pipeLine.cpp(28,47): warning C4244: “参数”: 从“float”转换到“unsigned char”，可能丢失数据
   triangle.cpp
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(31,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
           with
           [
               _Ty=float
           ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(32,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
           with
           [
               _Ty=float
           ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(33,15): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
           with
           [
               _Ty=float
           ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(34,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
           with
           [
               _Ty=float
           ]
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(36,34): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(36,31): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(38,56): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(38,53): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
   vertexShader.cpp
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\ComputerGraphics\pipeLine\pipeLine\src\vertexShader.cpp(20,106): warning C4244: “参数”: 从“double”转换到“const float”，可能丢失数据
+E:\ComputerGraphics\pipeLine\pipeLine\src\vertexShader.cpp(20,67): warning C4244: “参数”: 从“double”转换到“const float”，可能丢失数据
   正在生成代码...
   pipeLine.vcxproj -> E:\ComputerGraphics\pipeLine\x64\Debug\pipeLine.exe

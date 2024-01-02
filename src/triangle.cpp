@@ -1,18 +1,17 @@
 #include "triangle.h"
-
-float crossDot(const Eigen::Vector2f& a, const Eigen::Vector2f& b)
+#include<math.h>
+float crossDot(const Eigen::Vector3f& a, const Eigen::Vector3f& b)
 {
 	return a.x() * b.y() - a.y() * b.x();
 }
 
-Triangle::Triangle(const std::vector<Eigen::Vector2f>& screenCoord, TGAImage& image,ZBuffer& zBuffer)
-	:ma(screenCoord[0]), mb(screenCoord[1]), mc(screenCoord[2]), image(image), zBuffer(zBuffer)
+Triangle::Triangle(const std::vector<Eigen::Vector3f>& screenCoord, TGAImage& image,ZBuffer& zBuffer, const std::vector<Eigen::Vector3f>& wordCoord)
+	:screenCoord(screenCoord), ma(screenCoord[0]), mb(screenCoord[1]), mc(screenCoord[2]), 
+	image(image), zBuffer(zBuffer),wordCoord(wordCoord)
 {
 }
 
-
-
-bool Triangle::inside(const Eigen::Vector2f& p)
+bool Triangle::inside(const Eigen::Vector3f& p)
 {
 	auto r1 = crossDot(p - ma, mb - ma);
 	auto r2 = crossDot(p - mb, mc - mb);
@@ -20,8 +19,6 @@ bool Triangle::inside(const Eigen::Vector2f& p)
 	if (r1 >= 0 && r2 >= 0 && r3 >= 0 || r1 <= 0 && r2 <= 0 && r3 <= 0)return true;
 	return false;
 }
-
-
 
 void Triangle::Draw(const TGAColor& color)
 {
@@ -36,51 +33,70 @@ void Triangle::Draw(const TGAColor& color)
 	{
 		for (int y = bottom; y <= top; y++)
 		{
-			if (inside(Eigen::Vector2f(x, y)))
+			if (inside(Eigen::Vector3f(x, y,0)))
 			{
-				image.set(x, y, color);
+				auto temp = calBarycentricCoord(Eigen::Vector3f(x, y,0));
+				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
+				if(zBuffer.Set(x, y, currZ))
+					image.set(x, y, color);
 			}
 		}
 	}
 }
-	
-void Triangle::line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color)
+
+std::vector<float> Triangle::calBarycentricCoord(const Eigen::Vector3f& curr)
 {
-	//采用Bresenham算法
-	//其中给出的参数都是屏幕空间的数值
-	bool steep = false;
-	if (std::abs(x1 - x2) < std::abs(y1 - y2))//保证斜率在[0,1]之间
-	{
-		std::swap(x1, y1);
-		std::swap(x2, y2);
-		steep = true;
-	}
-	if (x1 > x2)
-	{
-		//保证从左到右
-		std::swap(x1, x2);
-		std::swap(y1, y2);
-	}
-	auto y = y1;
-	int dx = x2 - x1;
-	int dy = y2 - y1;
-	double error = 0.0;//计数
-	double derror = std::abs((double)dy / (double)dx);//斜率的绝对值
-	for (int x = x1; x <= x2; x++)
-	{
-		if (steep)
-		{
-			image.set(y, x, color);
-		}
-		else
-		{
-			image.set(x, y, color);
-		}
-		error += derror;
-		if (error > 0.5)
-		{
-			y += y2 > y1 ? 1 : -1;
-			error--;
-		}
-	}
+	auto N = (mb - curr).cross(mc - curr);
+	auto areaV = (mb - ma).cross(mc - ma);
+	auto area = std::sqrt(areaV.dot(areaV));
+	auto areaAV = (mb - curr).cross(mc - curr);
+	auto areaA = std::sqrt(areaAV.dot(areaAV));
+	auto areaBV = (mc - curr).cross(ma - curr);
+	auto areaB = std::sqrt(areaBV.dot(areaBV));
+	auto areaCV = (ma - curr).cross(mb - curr);
+	auto areaC = std::sqrt(areaCV.dot(areaCV));
+	return std::vector<float> {areaA / area, areaB / area, areaC / area };
 }
+
+
+
+//void Triangle::line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color)
+//{
+//	//采用Bresenham算法
+//	//其中给出的参数都是屏幕空间的数值
+//	bool steep = false;
+//	if (std::abs(x1 - x2) < std::abs(y1 - y2))//保证斜率在[0,1]之间
+//	{
+//		std::swap(x1, y1);
+//		std::swap(x2, y2);
+//		steep = true;
+//	}
+//	if (x1 > x2)
+//	{
+//		//保证从左到右
+//		std::swap(x1, x2);
+//		std::swap(y1, y2);
+//	}
+//	auto y = y1;
+//	int dx = x2 - x1;
+//	int dy = y2 - y1;
+//	double error = 0.0;//计数
+//	double derror = std::abs((double)dy / (double)dx);//斜率的绝对值
+//	for (int x = x1; x <= x2; x++)
+//	{
+//		if (steep)
+//		{
+//			image.set(y, x, color);
+//		}
+//		else
+//		{
+//			image.set(x, y, color);
+//		}
+//		error += derror;
+//		if (error > 0.5)
+//		{
+//			y += y2 > y1 ? 1 : -1;
+//			error--;
+//		}
+//	}
+//}

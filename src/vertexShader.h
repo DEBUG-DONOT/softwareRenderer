@@ -13,9 +13,9 @@ class VertexShader
 public:
 	VertexShader(const std::vector<Eigen::Vector3f>& wordCoord, ZBuffer& zbuffer);
 	void CalScreenCoord();
-	const std::vector<Eigen::Vector2f>& GetScreenCoord();
+	const std::vector<Eigen::Vector3f>& GetScreenCoord();
 private:
 	ZBuffer& zBuffer;
 	const std::vector<Eigen::Vector3f>& wordCoord;
-	std::vector<Eigen::Vector2f> screenCoord;
+	std::vector<Eigen::Vector3f> screenCoord;
 };

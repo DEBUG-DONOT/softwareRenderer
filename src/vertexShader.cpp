@@ -3,10 +3,10 @@
 VertexShader::VertexShader(const std::vector<Eigen::Vector3f>& wordCoord, ZBuffer& zbuffer)
 	:wordCoord(wordCoord),zBuffer(zbuffer)
 {
-	screenCoord = std::vector<Eigen::Vector2f>(3);
+	screenCoord = std::vector<Eigen::Vector3f>(3);
 }
 
-const std::vector<Eigen::Vector2f>& VertexShader::GetScreenCoord()
+const std::vector<Eigen::Vector3f>& VertexShader::GetScreenCoord()
 {
 	return screenCoord;
 }
@@ -17,6 +17,6 @@ void VertexShader::CalScreenCoord()
 	auto height = zBuffer.GetHeight();
 	for (int i = 0; i < 3; i++)
 	{
-		screenCoord[i] = Eigen::Vector2f((wordCoord[i].x() + 1) * width / 2.0, (wordCoord[i].y() + 1) * height / 2.0);
+		screenCoord[i] = Eigen::Vector3f((wordCoord[i].x() + 1) * width / 2.0, (wordCoord[i].y() + 1) * height / 2.0,wordCoord[i].z());
 	}
 }
