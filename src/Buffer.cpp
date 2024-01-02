@@ -8,7 +8,7 @@ ZBuffer::ZBuffer(int w, int h)
 	:data(nullptr),width(w),height(h)
 {
 	unsigned long nBytes = w * h;
-	data = new float[nBytes];
+	data = new double[nBytes];
 	if (!data) std::cerr << "ZBuffer:malloc data failed" << std::endl;
 	memset(data, -std::numeric_limits<float>::max(), nBytes);
 }

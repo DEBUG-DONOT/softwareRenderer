@@ -12,7 +12,7 @@ public:
 	inline int GetHeight()const { return height; };
 private:
 	int width=0, height=0;
-	float* data=nullptr;
+	double* data=nullptr;
 };
 
 class Texture
