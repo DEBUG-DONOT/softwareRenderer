@@ -1,17 +1,17 @@
 #include "triangle.h"
 #include<math.h>
-float crossDot(const Eigen::Vector3f& a, const Eigen::Vector3f& b)
+float crossDot(const Eigen::Vector3d& a, const Eigen::Vector3d& b)
 {
 	return a.x() * b.y() - a.y() * b.x();
 }
 
-Triangle::Triangle(const std::vector<Eigen::Vector3f>& screenCoord, TGAImage& image,ZBuffer& zBuffer, const std::vector<Eigen::Vector3f>& wordCoord)
+Triangle::Triangle(const std::vector<Eigen::Vector3d>& screenCoord, TGAImage& image,ZBuffer& zBuffer, const std::vector<Eigen::Vector3d>& wordCoord)
 	:screenCoord(screenCoord), ma(screenCoord[0]), mb(screenCoord[1]), mc(screenCoord[2]), 
 	image(image), zBuffer(zBuffer),wordCoord(wordCoord)
 {
 }
 
-bool Triangle::inside(const Eigen::Vector3f& p)
+bool Triangle::inside(const Eigen::Vector3d& p)
 {
 	auto r1 = crossDot(p - ma, mb - ma);
 	auto r2 = crossDot(p - mb, mc - mb);
@@ -25,17 +25,17 @@ void Triangle::Draw(const TGAColor& color)
 	//flat shading,整个三角形使用一个颜色
 	//找出包围盒然后在包围盒内一个一个判断
 	int left, right, top, bottom;
-	left = std::max(0.0f, std::min(ma.x(), std::min(mb.x(), mc.x())));
-	right = std::min(image.get_width() - 1.0f, std::max(ma.x(), std::max(mb.x(), mc.x())));
-	top= std::min(image.get_height() - 1.0f, std::max(ma.y(), std::max(mb.y(), mc.y())));
-	bottom= std::max(0.0f, std::min(ma.y(), std::min(mb.y(), mc.y())));
+	left = std::max(0.0, std::min(ma.x(), std::min(mb.x(), mc.x())));
+	right = std::min(image.get_width() - 1.0, std::max(ma.x(), std::max(mb.x(), mc.x())));
+	top= std::min(image.get_height() - 1.0, std::max(ma.y(), std::max(mb.y(), mc.y())));
+	bottom= std::max(0.0, std::min(ma.y(), std::min(mb.y(), mc.y())));
 	for (int x = left; x <= right; x++)
 	{
 		for (int y = bottom; y <= top; y++)
 		{
-			if (inside(Eigen::Vector3f(x, y,0)))
+			if (inside(Eigen::Vector3d(x, y,0)))
 			{
-				auto temp = calBarycentricCoord(Eigen::Vector3f(x, y,0));
+				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y,0));
 				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
 				if(zBuffer.Set(x, y, currZ))
 					image.set(x, y, color);
@@ -47,17 +47,17 @@ void Triangle::Draw(const TGAColor& color)
 void Triangle::Draw(const Texture* tex)
 {
 	int left, right, top, bottom;
-	left = std::max(0.0f, std::min(ma.x(), std::min(mb.x(), mc.x())));
-	right = std::min(image.get_width() - 1.0f, std::max(ma.x(), std::max(mb.x(), mc.x())));
-	top = std::min(image.get_height() - 1.0f, std::max(ma.y(), std::max(mb.y(), mc.y())));
-	bottom = std::max(0.0f, std::min(ma.y(), std::min(mb.y(), mc.y())));
+	left = std::max(0.0, std::min(ma.x(), std::min(mb.x(), mc.x())));
+	right = std::min(image.get_width() - 1.0, std::max(ma.x(), std::max(mb.x(), mc.x())));
+	top = std::min(image.get_height() - 1.0, std::max(ma.y(), std::max(mb.y(), mc.y())));
+	bottom = std::max(0.0, std::min(ma.y(), std::min(mb.y(), mc.y())));
 	for (int x = left; x <= right; x++)
 	{
 		for (int y = bottom; y <= top; y++)
 		{
-			if (inside(Eigen::Vector3f(x, y, 0)))
+			if (inside(Eigen::Vector3d(x, y, 0)))
 			{
-				auto temp = calBarycentricCoord(Eigen::Vector3f(x, y, 0));
+				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y, 0));
 				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
 				if (zBuffer.Set(x, y, currZ))
 					image.set(x, y, tex->Get(x,y));
@@ -66,7 +66,7 @@ void Triangle::Draw(const Texture* tex)
 	}
 }
 
-std::vector<float> Triangle::calBarycentricCoord(const Eigen::Vector3f& curr)
+std::vector<double> Triangle::calBarycentricCoord(const Eigen::Vector3d& curr)
 {
 	auto N = (mb - curr).cross(mc - curr);
 	auto areaV = (mb - ma).cross(mc - ma);
@@ -77,7 +77,7 @@ std::vector<float> Triangle::calBarycentricCoord(const Eigen::Vector3f& curr)
 	auto areaB = std::sqrt(areaBV.dot(areaBV));
 	auto areaCV = (ma - curr).cross(mb - curr);
 	auto areaC = std::sqrt(areaCV.dot(areaCV));
-	return std::vector<float> {areaA / area, areaB / area, areaC / area };
+	return std::vector<double> {areaA / area, areaB / area, areaC / area };
 }
 
 

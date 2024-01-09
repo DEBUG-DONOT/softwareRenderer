@@ -10,7 +10,7 @@ ZBuffer::ZBuffer(int w, int h)
 	unsigned long nBytes = w * h;
 	data = new double[nBytes];
 	if (!data) std::cerr << "ZBuffer:malloc data failed" << std::endl;
-	memset(data, -std::numeric_limits<float>::max(), nBytes);
+	memset(data, -std::numeric_limits<double>::max(), nBytes);
 }
 
 ZBuffer::~ZBuffer()
@@ -18,17 +18,17 @@ ZBuffer::~ZBuffer()
 	if (data) delete[] data;
 }
 
-float ZBuffer::Get(int x, int y) const
+double ZBuffer::Get(int x, int y) const
 {
 	if (!data || x < 0 || y < 0 || x >= width || y >= height)
 	{
 		std::cerr << "Zbuffer:Get Error" <<"x "<<x<<" y "<<y << std::endl;
-		return -std::numeric_limits<float>::max();
+		return -std::numeric_limits<double>::max();
 	}
 	return data[x + width * y];
 }
 
-bool ZBuffer::Set(int x, int y, float z)
+bool ZBuffer::Set(int x, int y, double z)
 {
 	auto curr = this->Get(x, y);
 	if (z > curr)

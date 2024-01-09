@@ -10,9 +10,9 @@ int main()
     TGAImage image(width, height, TGAImage::RGB);
     ZBuffer zBuffer(width, height);
     auto m = new Model("src/OBJ/african_head.obj");
-    auto texture = new Texture("src/OBJ/african_diffuse.tga");
-    Light mLight(Eigen::Vector3f(0, 0, 0), Eigen::Vector3f(0, 0, -1));
-    std::vector<Eigen::Vector3f> wordCoord(3);
+    //auto texture = new Texture("src/OBJ/african_diffuse.tga");
+    Light mLight(Eigen::Vector3d(0, 0, 0), Eigen::Vector3d(0, 0, -1));
+    std::vector<Eigen::Vector3d> wordCoord(3);
     for (int i = 0; i < m->nfaces(); i++)
     {
         auto currFace = m->face(i);
@@ -22,12 +22,10 @@ int main()
         }
         VertexShader v(wordCoord, zBuffer);
         v.CalScreenCoord();
-
         auto n = (wordCoord[2] - wordCoord[0]).cross((wordCoord[1] - wordCoord[0])).normalized();
         auto intensity = n.dot(mLight.GetDir());
         Triangle t(v.GetScreenCoord(), image, zBuffer,wordCoord);
         if (intensity > 0)t.Draw(TGAColor(255 * intensity, 255 * intensity, 255 * intensity, 255));
-        //if (intensity > 0) t.Draw(red);
     }
     image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
     image.write_tga_file("output.tga");

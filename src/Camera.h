@@ -4,18 +4,18 @@
 class Light
 {
 public:
-	Light(Eigen::Vector3f origin, Eigen::Vector3f destination)
+	Light(Eigen::Vector3d origin, Eigen::Vector3d destination)
 		:fromPoint(origin),toPoint(destination)
 	{
 		Dir = toPoint - fromPoint;
 	}
-	inline Eigen::Vector3f GetDir()const { return Dir; };
+	inline Eigen::Vector3d GetDir()const { return Dir; };
 	void operator =(const Light& l);
 
 private:
-	Eigen::Vector3f& fromPoint;
-	Eigen::Vector3f& toPoint;
-	Eigen::Vector3f Dir;
+	Eigen::Vector3d& fromPoint;
+	Eigen::Vector3d& toPoint;
+	Eigen::Vector3d Dir;
 };
 
 

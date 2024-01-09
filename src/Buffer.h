@@ -6,8 +6,8 @@ public:
 
 	ZBuffer(int w, int h);
 	~ZBuffer();
-	float Get(int x, int y)const;
-	bool Set(int x, int y, float z);
+	double Get(int x, int y)const;
+	bool Set(int x, int y, double z);
 	inline int GetWidth()const { return width; };
 	inline int GetHeight()const { return height; };
 private:

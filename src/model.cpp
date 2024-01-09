@@ -18,7 +18,7 @@ Model::Model(const char *filename) : verts_(), faces_() {
         if (!line.compare(0, 2, "v ")) //vertex
         {
             iss >> trash;
-            Eigen::Vector3f v;
+            Eigen::Vector3d v;
             for (int i=0;i<3;i++) iss >> v[i];
             verts_.push_back(v);
         } 
@@ -32,6 +32,13 @@ Model::Model(const char *filename) : verts_(), faces_() {
                 f.push_back(idx);
             }
             faces_.push_back(f);
+        }
+        else if (!line.compare(0, 2, "vt"))
+        {
+            /*iss >> trash;
+            Eigen::Vector2f uv;
+            for (int i = 0; i < 2; i++) iss >> uv[i];
+            verts_.push_back(v);*/
         }
     }
     std::cerr << "# v# " << verts_.size() << " f# "  << faces_.size() << std::endl;
@@ -52,7 +59,7 @@ std::vector<int> Model::face(int idx) {
     return faces_[idx];
 }
 
-Eigen::Vector3f Model::vert(int i) {
+Eigen::Vector3d Model::vert(int i) {
     return verts_[i];
 }
 

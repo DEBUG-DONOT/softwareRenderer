@@ -8,20 +8,20 @@
 class Triangle
 {
 public:	
-	Triangle(const std::vector<Eigen::Vector3f>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3f>& wordCoord);
+	Triangle(const std::vector<Eigen::Vector3d>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3d>& wordCoord);
 	void Draw(const TGAColor& color);
 	void Draw(const Texture* tex);
 private:
-	bool inside(const Eigen::Vector3f& p);
+	bool inside(const Eigen::Vector3d& p);
 	//void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
-	std::vector<float> calBarycentricCoord(const Eigen::Vector3f& curr);
+	std::vector<double> calBarycentricCoord(const Eigen::Vector3d& curr);
 	TGAImage& image;
 	ZBuffer& zBuffer;
-	const Eigen::Vector3f& ma;
-	const Eigen::Vector3f& mb;
-	const Eigen::Vector3f& mc;
-	const std::vector<Eigen::Vector3f>& screenCoord;
-	const std::vector<Eigen::Vector3f>& wordCoord;
+	const Eigen::Vector3d& ma;
+	const Eigen::Vector3d& mb;
+	const Eigen::Vector3d& mc;
+	const std::vector<Eigen::Vector3d>& screenCoord;
+	const std::vector<Eigen::Vector3d>& wordCoord;
 };						 
 
 

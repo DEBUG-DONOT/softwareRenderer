@@ -11,11 +11,11 @@
 class VertexShader
 {
 public:
-	VertexShader(const std::vector<Eigen::Vector3f>& wordCoord, ZBuffer& zbuffer);
+	VertexShader(const std::vector<Eigen::Vector3d>& wordCoord, ZBuffer& zbuffer);
 	void CalScreenCoord();
-	const std::vector<Eigen::Vector3f>& GetScreenCoord();
+	const std::vector<Eigen::Vector3d>& GetScreenCoord();
 private:
 	ZBuffer& zBuffer;
-	const std::vector<Eigen::Vector3f>& wordCoord;
-	std::vector<Eigen::Vector3f> screenCoord;
+	const std::vector<Eigen::Vector3d>& wordCoord;
+	std::vector<Eigen::Vector3d> screenCoord;
 };
