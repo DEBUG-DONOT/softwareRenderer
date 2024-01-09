@@ -44,13 +44,15 @@ void Triangle::Draw(const TGAColor& color)
 	}
 }
 
-void Triangle::Draw(const Texture* tex)
+void Triangle::Draw(const FragmentShader& fs)
 {
+	//frag≥÷”–tex
 	int left, right, top, bottom;
 	left = std::max(0.0, std::min(ma.x(), std::min(mb.x(), mc.x())));
 	right = std::min(image.get_width() - 1.0, std::max(ma.x(), std::max(mb.x(), mc.x())));
 	top = std::min(image.get_height() - 1.0, std::max(ma.y(), std::max(mb.y(), mc.y())));
 	bottom = std::max(0.0, std::min(ma.y(), std::min(mb.y(), mc.y())));
+
 	for (int x = left; x <= right; x++)
 	{
 		for (int y = bottom; y <= top; y++)
@@ -60,11 +62,16 @@ void Triangle::Draw(const Texture* tex)
 				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y, 0));
 				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
 				if (zBuffer.Set(x, y, currZ))
-					image.set(x, y, tex->Get(x,y));
+				{
+					//auto color=
+				}
+					//image.set(x, y, color);
 			}
 		}
 	}
 }
+
+
 
 std::vector<double> Triangle::calBarycentricCoord(const Eigen::Vector3d& curr)
 {
