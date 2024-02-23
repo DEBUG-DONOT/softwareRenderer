@@ -75,6 +75,11 @@ Eigen::Vector2d Model::TexVert(int i)
     return TexVerts_[i];
 }
 
+std::vector<int> Model::texIndex(int idx)
+{
+    return TexIndex_[idx];
+}
+
 Eigen::Vector3d Model::vert(int i) {
     return verts_[i];
 }

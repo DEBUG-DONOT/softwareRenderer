@@ -44,7 +44,7 @@ void Triangle::Draw(const TGAColor& color)
 	}
 }
 
-void Triangle::Draw(const FragmentShader& fs)
+void Triangle::Draw(const VertexShader& vs, const FragmentShader& fs)
 {
 	//frag≥÷”–tex
 	int left, right, top, bottom;
@@ -63,9 +63,15 @@ void Triangle::Draw(const FragmentShader& fs)
 				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
 				if (zBuffer.Set(x, y, currZ))
 				{
-					//auto color=
+					int u = image.get_width() * (temp[0] * vs.GetTexCoord()[0].x()+
+						temp[1]*vs.GetTexCoord()[1].x()+
+						vs.GetTexCoord()[2].x()*temp[2]);
+					int v = image.get_height() * (temp[0] * vs.GetTexCoord()[0].y()
+						+ temp[1] * vs.GetTexCoord()[1].y() +
+						vs.GetTexCoord()[2].y() * temp[2]);
+					auto color = fs.CalColor(u, v);
+					image.set(x, y, color);
 				}
-					//image.set(x, y, color);
 			}
 		}
 	}

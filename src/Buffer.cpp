@@ -40,12 +40,17 @@ bool ZBuffer::Set(int x, int y, double z)
 }
 
 Texture::Texture(const char* filename)
+	:tex()
 {
 	//可以做一个mipmap
-	tex.read_tga_file(filename);
+	if (!tex.read_tga_file(filename))
+	{
+		std::cerr << "texture::read_tga_file failed" << std::endl;
+	}
+	tex.flip_vertically();
 }
 
-TGAColor Texture::Get(int x, int y) const
+TGAColor Texture::Get(int x, int y) 
 {
-	return TGAColor();
+	return this->tex.get(x,y);
 }

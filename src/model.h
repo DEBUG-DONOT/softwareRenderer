@@ -19,6 +19,7 @@ public:
 	Eigen::Vector3d vert(int i);
 	std::vector<int> face(int idx);
 	Eigen::Vector2d TexVert(int i);
+	std::vector<int> texIndex(int idx);
 };
 
 #endif //__MODEL_H__

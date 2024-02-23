@@ -1,7 +1,7 @@
 #include"vertexShader.h"
 
-VertexShader::VertexShader(const std::vector<Eigen::Vector3d>& wordCoord, ZBuffer& zbuffer)
-	:wordCoord(wordCoord),zBuffer(zbuffer)
+VertexShader::VertexShader(const std::vector<Eigen::Vector3d>& wordCoord, ZBuffer& zbuffer, const std::vector<Eigen::Vector2d>& TexCoord)
+	:wordCoord(wordCoord),zBuffer(zbuffer),TexCoord(TexCoord)
 {
 	screenCoord = std::vector<Eigen::Vector3d>(3);
 }
@@ -10,6 +10,13 @@ const std::vector<Eigen::Vector3d>& VertexShader::GetScreenCoord()
 {
 	return screenCoord;
 }
+
+const std::vector<Eigen::Vector2d>& VertexShader::GetTexCoord()const
+{
+	return this->TexCoord;
+}
+
+
 
 void VertexShader::CalScreenCoord()
 {

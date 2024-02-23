@@ -19,7 +19,7 @@ class Texture
 {
 public:
 	Texture(const char* filename);
-	TGAColor Get(int x, int y) const;
+	TGAColor Get(int x, int y);
 private:
 	TGAImage tex;
 };

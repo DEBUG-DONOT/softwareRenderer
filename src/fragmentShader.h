@@ -5,7 +5,7 @@ class FragmentShader
 {
 public:
 	FragmentShader(TGAImage& image,Texture& t):image(image),tex(t) {};
-	void CalColor(int x, int y);
+	TGAColor CalColor(int x, int y) const ;
 
 
 
