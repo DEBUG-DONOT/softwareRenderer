@@ -2,6 +2,7 @@
 #include"model.h"
 #include"vertexShader.h"
 #include"fragmentShader.h"
+#define WriteToFile image.flip_vertically();image.write_tga_file("output.tga");
 const TGAColor white = TGAColor(255, 255, 255, 255);
 const TGAColor red = TGAColor(255, 0, 0, 255);
 int main() 
@@ -16,6 +17,7 @@ int main()
     std::vector<Eigen::Vector3d> wordCoord(3);
     std::vector<Eigen::Vector2d> mtexCoord(3);
     FragmentShader fs(image, *texture);
+    
     for (int i = 0; i < m->nfaces(); i++)
     {
         auto currFace = m->face(i);
@@ -25,6 +27,7 @@ int main()
             wordCoord[j] = m->vert(currFace[j]);
             mtexCoord[j] = m->TexVert(currTex[j]);
         }
+        //下面就是vertexshader做的，处理单个的点
         VertexShader v(wordCoord, zBuffer,mtexCoord);
         v.CalScreenCoord();
         //////////////这一部分要放到fragmentshader或者vertexshader中，取决于shader的种类
@@ -34,9 +37,6 @@ int main()
         Triangle t(v.GetScreenCoord(), image, zBuffer,wordCoord);
         t.Draw(v,fs);
     }
-    image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
-    image.write_tga_file("output.tga");
+    WriteToFile
     return 0;
 }
-
-

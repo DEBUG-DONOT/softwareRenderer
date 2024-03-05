@@ -1,56 +1,95 @@
-﻿  triangle.cpp
-D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(5,23): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244: “初始化”: 从“_Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-E:\ComputerGraphics\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244: “初始化”: 从“_Ty”转换到“int”，可能丢失数据
-          with
-          [
-              _Ty=double
-          ]
-  pipeLine.vcxproj -> E:\ComputerGraphics\pipeLine\x64\Debug\pipeLine.exe
+﻿  Camera.cpp
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/Camera.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/Camera.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/Camera.cpp”)
+  
+  pipeLine.cpp
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/pipeLine.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/pipeLine.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/pipeLine.cpp”)
+  
+  triangle.cpp
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/triangle.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/triangle.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/triangle.cpp”)
+  
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(5,23): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(28,17): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(29,18): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(30,15): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(31,18): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(51,17): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(52,18): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(53,16): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244: “=”: 从“const _Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(54,19): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244: “初始化”: 从“_Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(66,12): warning C4244:         ]
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244: “初始化”: 从“_Ty”转换到“int”，可能丢失数据
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244:         with
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244:         [
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244:             _Ty=double
+C:\Users\87784\Desktop\Code\pipeLine\pipeLine\src\triangle.cpp(69,12): warning C4244:         ]
+  vertexShader.cpp
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/vertexShader.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/vertexShader.cpp”)
+  
+C:\src\vcpkg\installed\x64-windows\include\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“src/vertexShader.cpp”)
+  
+  正在生成代码...
+  pipeLine.vcxproj -> C:\Users\87784\Desktop\Code\pipeLine\x64\Debug\pipeLine.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。

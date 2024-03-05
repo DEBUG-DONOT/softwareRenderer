@@ -16,10 +16,17 @@ const std::vector<Eigen::Vector2d>& VertexShader::GetTexCoord()const
 	return this->TexCoord;
 }
 
+const std::vector<Eigen::Vector2d> VertexShader::MVP(const SceneSetting& st)
+{
+	//根据camera来进行视角的变换
+	return std::vector<Eigen::Vector2d>();
+}
+
 
 
 void VertexShader::CalScreenCoord()
 {
+
 	auto width = zBuffer.GetWidth();
 	auto height = zBuffer.GetHeight();
 	for (int i = 0; i < 3; i++)
