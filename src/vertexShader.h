@@ -18,7 +18,13 @@ public:
 	const std::vector<Eigen::Vector2d>& GetTexCoord() const;
 	const std::vector<Eigen::Vector2d> MVP(const SceneSetting& st);
 	void SetSceneSetting(SceneSetting& sceneS);
-	inline const std::vector<Eigen::Vector3d>& GetNewWordCoord() { return NewWordCoord; }
+	inline const std::vector<Eigen::Vector3d>& GetNewWordCoord() 
+	{ 
+		if (sceneSetting)
+			return NewWordCoord;
+		else
+			return wordCoord;
+	}
 private:
 	ZBuffer& zBuffer;
 	SceneSetting* sceneSetting=nullptr;

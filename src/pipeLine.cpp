@@ -14,6 +14,7 @@ int main()
     ZBuffer zBuffer(width, height);
     auto m = new Model("src/OBJ/african_head.obj");
     auto texture = new Texture("src/OBJ/african_head_diffuse.tga");
+
     Light mLight(Eigen::Vector3d(0, 0, 0), Eigen::Vector3d(0, 0, -1));
     std::vector<Eigen::Vector3d> wordCoord(3);
     std::vector<Eigen::Vector2d> mtexCoord(3);
@@ -22,7 +23,7 @@ int main()
     Eigen::Vector3d pos, lookAt, up;
     pos = Eigen::Vector3d(0, 0, 1);
     lookAt = Eigen::Vector3d(0, 0, -1);
-    up = Eigen::Vector3d(0, -1, 0);
+    up = Eigen::Vector3d(0, 1, 0);
     double left=-2, right=2, top=2, bottom=-2;
     Camera camera(pos, lookAt, up);
     SceneSetting scS(camera, left, right, top, bottom);
@@ -44,9 +45,14 @@ int main()
         //auto intensity = n.dot(mLight.GetDir());
         /////////////////
         Triangle t(v.GetScreenCoord(), image, zBuffer,v.GetNewWordCoord());
+        //Triangle t(v.GetScreenCoord(), image, zBuffer,wordCoord);
+
+        Eigen::Vector3d n = (v.GetNewWordCoord()[2] - v.GetNewWordCoord()[0]).cross((v.GetNewWordCoord()[1] - v.GetNewWordCoord()[0])) ;
+        n.normalize();
+        double intensity = n.dot(mLight.GetDir().normalized());
+        t.Draw(TGAColor(255.0 * intensity, 255.0 * intensity, 255.0 * intensity,255));
         //t.Draw(v,fs);
-        //随机产生颜色
-        t.DrwaLine(white);
+        //t.DrwaLine(white);
     }
     WriteToFile
     return 0;

@@ -143,3 +143,20 @@ NDC->屏幕坐标
 
 
 
+# 遇到的问题：
+
+1.精度问题
+
+
+
+2.计算mvp中的问题：
+
+2.1计算view时的问题
+
+
+
+2.2计算mvp对于z的影响
+
+![image-20240306202144699](C:\Users\87784\AppData\Roaming\Typora\typora-user-images\image-20240306202144699.png)
+
+z出现了问题，把背面的放回到了正面来

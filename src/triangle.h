@@ -9,7 +9,8 @@
 class Triangle
 {
 public:	
-	Triangle(const std::vector<Eigen::Vector3d>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3d>& wordCoord);
+	Triangle(const std::vector<Eigen::Vector3d>& screenCoord,TGAImage& image,ZBuffer& zbuffer,
+		const std::vector<Eigen::Vector3d>& wordCoord);
 	void Draw(const TGAColor& color);
 	void Draw(const VertexShader& vs, const FragmentShader& fs);
 	void DrwaLine(TGAColor color);

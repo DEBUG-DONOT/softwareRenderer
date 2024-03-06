@@ -47,6 +47,7 @@ void Triangle::Draw(const TGAColor& color)
 void Triangle::Draw(const VertexShader& vs, const FragmentShader& fs)
 {
 	//frag³ÖÓÐtex
+	//°üÎ§ºÐ
 	int left, right, top, bottom;
 	left = std::max(0.0, std::min(ma.x(), std::min(mb.x(), mc.x())));
 	right = std::min(image.get_width() - 1.0, std::max(ma.x(), std::max(mb.x(), mc.x())));
@@ -60,7 +61,8 @@ void Triangle::Draw(const VertexShader& vs, const FragmentShader& fs)
 			if (inside(Eigen::Vector3d(x, y, 0)))
 			{
 				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y, 0));
-				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
+				auto currZ = temp[0] * wordCoord[0].z() +
+					temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
 				if (zBuffer.Set(x, y, currZ))
 				{
 					int u = image.get_width() * (temp[0] * vs.GetTexCoord()[0].x()+
@@ -70,7 +72,6 @@ void Triangle::Draw(const VertexShader& vs, const FragmentShader& fs)
 						+ temp[1] * vs.GetTexCoord()[1].y() +
 						vs.GetTexCoord()[2].y() * temp[2]);
 					auto color = fs.CalColor(u, v);
-					//auto color = TGAColor(255, 255, 255, 255);
 					image.set(x, y, color);
 				}
 			}
