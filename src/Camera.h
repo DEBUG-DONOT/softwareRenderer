@@ -56,6 +56,7 @@ public:
 		CalProjectionMatrix();
 	};
 	inline const Eigen::Matrix4d GetProjectionMatrix() const { return projectionMatrix; }
+	inline const Eigen::Matrix4d GetMVP()const { return GetProjectionMatrix() * camera.GetViewMatrix(); }
 	//set
 private:
 	void CalProjectionMatrix();

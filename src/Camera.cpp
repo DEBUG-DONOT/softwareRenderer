@@ -13,7 +13,7 @@ void Camera::ViewMatrix()
 	Eigen::Matrix4d t, r;
 	t << 1, 0, 0, -pos.x(), 0, 1, 0, -pos.y(), 0, 0, 1, -pos.z(), 0, 0, 0, 1;
 	Eigen::Vector3d gt = lookAt.cross(up);
-	r << gt, 0, up, 0, -lookAt, 0, 0, 0, 0, 1;
+	r << gt.x(),gt.y(),gt.z(), 0, up.x(),up.y(),up.z(), 0, -lookAt.x(),lookAt.y(),lookAt.z(), 0, 0, 0, 0, 1;
 	ViewM = r * t;
 }
 

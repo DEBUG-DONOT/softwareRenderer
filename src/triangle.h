@@ -12,9 +12,10 @@ public:
 	Triangle(const std::vector<Eigen::Vector3d>& screenCoord,TGAImage& image,ZBuffer& zbuffer, const std::vector<Eigen::Vector3d>& wordCoord);
 	void Draw(const TGAColor& color);
 	void Draw(const VertexShader& vs, const FragmentShader& fs);
+	void DrwaLine(TGAColor color);
 private:
 	bool inside(const Eigen::Vector3d& p);
-	//void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
+	void line(int x1, int y1, int x2, int y2, TGAImage& image, TGAColor color);
 	std::vector<double> calBarycentricCoord(const Eigen::Vector3d& curr);
 	TGAImage& image;
 	ZBuffer& zBuffer;
