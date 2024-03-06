@@ -5,7 +5,8 @@ float crossDot(const Eigen::Vector3d& a, const Eigen::Vector3d& b)
 	return a.x() * b.y() - a.y() * b.x();
 }
 
-Triangle::Triangle(const std::vector<Eigen::Vector3d>& screenCoord, TGAImage& image,ZBuffer& zBuffer, const std::vector<Eigen::Vector3d>& wordCoord)
+Triangle::Triangle(const std::vector<Eigen::Vector3d>& screenCoord, 
+	TGAImage& image,ZBuffer& zBuffer, const std::vector<Eigen::Vector3d>& wordCoord)
 	:screenCoord(screenCoord), ma(screenCoord[0]), mb(screenCoord[1]), mc(screenCoord[2]), 
 	image(image), zBuffer(zBuffer),wordCoord(wordCoord)
 {
@@ -37,7 +38,7 @@ void Triangle::Draw(const TGAColor& color)
 			{
 				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y,0));
 				auto currZ = temp[0] * wordCoord[0].z() + temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
-				if(zBuffer.Set(x, y, currZ))
+				if(zBuffer.Set(x, y, -currZ))
 					image.set(x, y, color);
 			}
 		}
@@ -63,7 +64,7 @@ void Triangle::Draw(const VertexShader& vs, const FragmentShader& fs)
 				auto temp = calBarycentricCoord(Eigen::Vector3d(x, y, 0));
 				auto currZ = temp[0] * wordCoord[0].z() +
 					temp[1] * wordCoord[1].z() + temp[2] * wordCoord[2].z();
-				if (zBuffer.Set(x, y, currZ))
+				if (zBuffer.Set(x, y, -currZ))
 				{
 					int u = image.get_width() * (temp[0] * vs.GetTexCoord()[0].x()+
 						temp[1]*vs.GetTexCoord()[1].x()+

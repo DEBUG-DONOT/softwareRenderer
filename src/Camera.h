@@ -62,6 +62,6 @@ private:
 	void CalProjectionMatrix();
 	Camera& camera;
 	Eigen::Matrix4d projectionMatrix;
-	double near=-1, far=-2;
+	double near=-1, far=-100;
 	double left, right, top, bottom;
 };
